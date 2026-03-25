@@ -117,7 +117,8 @@
                                        &none      &none       &none    &none  &none  &none
             >;
         };
-func_layer {
+
+        func_layer {
             label = "4";
             bindings = <
 &none  &none           &kp UP_ARROW    &none      &sys_reset  &none    &none  &none  &none  &none  &none  &none
@@ -126,9 +127,8 @@ func_layer {
                                        &none      &none       &none    &none  &none  &none
             >;
         };
-    };
 
-other_layer {
+        other_layer {
             label = "5";
             bindings = <
 &none  &none           &kp UP_ARROW    &none      &sys_reset  &none    &none  &none  &none  &none  &none  &none
@@ -138,5 +138,4 @@ other_layer {
             >;
         };
     };
-
 };
