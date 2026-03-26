@@ -4,9 +4,12 @@
  * SPDX-License-Identifier: MIT
  */
 
+/*
+ * Miryoku-style QWERTY (36-key / 3x5+3)
+ * With timing-safe homerow mods
+ */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define BASE 0
@@ -35,57 +38,68 @@
         compatible = "zmk,keymap";
 
         base_layer {
-            label = "BASE";
             bindings = <
-&kp Q      &kp W      &kp E      &kp R      &kp T           &kp Y      &kp U      &kp I      &kp O      &kp P
+/* ---------------- Row 1 ---------------- */
+&kp Q   &kp W   &kp E   &kp R   &kp T      &kp Y   &kp U   &kp I   &kp O   &kp P
 
-&kp A      &hm LGUI S &hm LALT D &hm LCTRL F &hm LSHFT G     &hm RSHFT H &hm RCTRL J &hm RALT K &hm RGUI L &kp SEMI
+/* -------- Home Row (HRM) -------------- */
+&kp A   &hm LGUI S  &hm LALT D  &hm LCTRL F  &hm LSHFT G
+        &hm RSHFT H &hm RCTRL J &hm RALT K   &hm RGUI L   &kp SEMI
 
-&kp Z      &kp X      &kp C      &kp V      &kp B           &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH
+/* ---------------- Row 3 ---------------- */
+&kp Z   &kp X   &kp C   &kp V   &kp B      &kp N   &kp M   &kp COMMA &kp DOT &kp FSLH
 
-                &lt NAV ESC   &kp TAB   &lt NUM SPACE     &lt SYM ENTER   &kp BSPC   &mo FUN
+/* ------------ Thumbs (3+3) ------------ */
+        &lt NAV ESC     &lt NUM BSPC    &lt SYM TAB
+        &lt SYM ENTER   &lt NUM SPACE   &lt NAV DEL
             >;
         };
 
         nav_layer {
-            label = "NAV";
             bindings = <
-&none  &none        &kp UP_ARROW    &none       &none       &none  &none  &none  &none  &none
-&none  &kp LEFT     &kp DOWN_ARROW  &kp RIGHT   &none       &none  &none  &none  &none  &none
-&none  &none        &none           &none       &none       &none  &none  &none  &none  &none
+&none &none &kp UP    &none &none      &none &none &none &none &none
+&none &kp LEFT &kp DOWN &kp RIGHT &none &none &none &none &none &none
+&none &none &none &none &none      &none &none &none &none &none
 
-                &trans &trans &trans            &trans &trans &trans
+        &trans &trans &trans
+        &trans &trans &trans
             >;
         };
 
         num_layer {
-            label = "NUM";
             bindings = <
-&kp N1  &kp N2  &kp N3  &kp N4  &kp N5          &kp N6  &kp N7  &kp N8  &kp N9  &kp N0
-&none   &none   &none   &none   &none           &none   &none   &none   &none   &none
-&none   &none   &none   &none   &none           &none   &none   &none   &none   &none
+&kp N1 &kp N2 &kp N3 &kp N4 &kp N5      &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+&none  &none  &none  &none  &none       &none  &none  &none  &none  &none
+&none  &none  &none  &none  &none       &none  &none  &none  &none  &none
 
-                &trans &trans &trans            &trans &trans &trans
+        &trans &trans &trans
+        &trans &trans &trans
             >;
         };
 
         sym_layer {
-            label = "SYM";
             bindings = <
-&kp EXCL &kp AT   &kp HASH &kp DLLR &kp PRCNT     &kp CARET &kp AMPS &kp ASTERISK &kp LPAR &kp RPAR
-&kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH     &kp PIPE  &kp TILDE &kp GRAVE    &kp LT   &kp GT
-&none     &none     &none     &none     &none       &none     &none     &none        &none    &none
+&kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS &kp ASTERISK &kp LPAR &kp RPAR
+&kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp PIPE  &kp TILDE &kp GRAVE &kp LT &kp GT
+&none &none &none &none &none             &none &none &none &none &none
 
-                &trans &trans &trans              &trans &trans &trans
+        &trans &trans &trans
+        &trans &trans &trans
             >;
         };
 
         fun_layer {
-            label = "FUN";
             bindings = <
-&kp F1 &kp F2 &kp F3 &kp F4 &kp F5              &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
-&kp F11 &kp F12 &none &none &none               &none  &none  &none  &none  &none
-&none   &none   &none &none &none               &none  &none  &none  &none  &none
+&kp F1 &kp F2 &kp F3 &kp F4 &kp F5      &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+&kp F11 &kp F12 &none &none &none       &none  &none  &none  &none  &none
+&none &none &none &none &none           &none  &none  &none  &none  &none
+
+        &trans &trans &trans
+        &trans &trans &trans
+            >;
+        };
+    };
+};
 
                 &trans &trans &trans            &trans &trans &trans
             >;
