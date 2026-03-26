@@ -77,7 +77,7 @@
          * 0 – BASE  (QWERTY + home-row mods)
          *
          *  Q   W   E   R   T       Y   U   I   O   P
-         * A/G S/A D/C F/S  G      H  J/S K/C L/A ;/G
+         * A/G S/A D/C F/S  G      H  J/S K/C L/A '/G
          *  Z   X   C   V   B       N   M   ,   .   /
          *          TAB SPC ESC    ENT BSP DEL
          *         MED NAV MOU    SYM NUM FUN
@@ -86,7 +86,7 @@
             label = "BASE";
             bindings = <
 &none  &kp Q          &kp W          &kp E           &kp R           &kp T          &kp Y        &kp U           &kp I           &kp O          &kp P             &none
-&none  &hm LGUI A     &hm LALT S     &hm LCTRL D     &hm LSHFT F     &kp G          &kp H        &hm RSHFT J     &hm RCTRL K     &hm RALT L     &hm RGUI SEMI     &none
+&none  &hm LGUI A     &hm LALT S     &hm LCTRL D     &hm LSHFT F     &kp G          &kp H        &hm RSHFT J     &hm RCTRL K     &hm RALT L     &hm RGUI SQT      &none
 &none  &kp Z          &kp X          &kp C           &kp V           &kp B          &kp N        &kp M           &kp COMMA       &kp DOT        &kp FSLH          &none
                                      &lt_tp MEDIA TAB  &lt_tp NAV SPACE  &lt_tp MOUSE ESC    &lt_tp SYM RET  &lt_tp NUM BSPC  &lt_tp FUN DEL
             >;
@@ -103,7 +103,7 @@
         nav_layer {
             label = "NAV";
             bindings = <
-&none  &kp LC(Y)   &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)      &kp LC(Y)    &kp LC(Z)    &kp LC(X)    &kp LC(C)   &kp LC(V)   &none
+&none  &none       &none       &none       &none       &none          &none        &none        &none        &none       &none       &none
 &none  &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none          &kp CAPS     &kp LEFT     &kp DOWN     &kp UP      &kp RIGHT   &none
 &none  &none       &none       &none       &none       &none          &kp INS      &kp HOME     &kp PG_DN    &kp PG_UP   &kp END     &none
                                &none       &none       &none          &kp RET      &kp BSPC     &kp DEL
@@ -124,7 +124,7 @@
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&none  &kp LC(Y)   &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)      &kp LC(Y)    &kp LC(Z)    &kp LC(X)    &kp LC(C)    &kp LC(V)    &none
+&none  &none       &none       &none       &none       &none          &none        &none        &none        &none        &none        &none
 &none  &kp LGUI    &kp LALT    &kp LCTRL   &kp LSHFT   &none          &none        &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none
 &none  &none       &none       &none       &none       &none          &none        &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &none
                                &none       &none       &none          &kp RET      &kp BSPC     &kp DEL
@@ -152,60 +152,60 @@
         /* ============================================================
          * 4 – NUM  (activated by right-thumb BSPC hold)
          *
-         * Left hand = numpad    Right hand = none (right thumb holds layer)
+         * Left hand = numpad    Right hand = mods (J=SHFT K=CTRL L=ALT ;=GUI)
          *
-         *  [   7   8   9   ]               –   –   –   –   –
-         *  ;   4   5   6   =               –   –   –   –   –
-         *  `   1   2   3   \               –   –   –   –   –
-         *         .   0   -               –   –   –
+         *  [   7   8   9   ]               –    –    –    –    –
+         *  ;   4   5   6   =               –   SHFT CTRL  ALT  GUI
+         *  `   1   2   3   \               –    –    –    –    –
+         *         .   0   -               –    –    –
          * ============================================================ */
         num_layer {
             label = "NUM";
             bindings = <
-&none  &kp LBKT         &kp N7          &kp N8           &kp N9           &kp RBKT       &none  &none  &none  &none  &none  &none
-&none  &hm LGUI SEMI    &hm LALT N4     &hm LCTRL N5     &hm LSHFT N6     &kp EQUAL      &none  &none  &none  &none  &none  &none
-&none  &kp GRAVE        &kp N1          &kp N2           &kp N3           &kp BSLH       &none  &none  &none  &none  &none  &none
-                                        &kp DOT          &kp N0           &kp MINUS      &none  &none  &none
+&none  &kp LBKT    &kp N7      &kp N8      &kp N9      &kp RBKT       &none  &none      &none       &none      &none      &none
+&none  &kp SEMI    &kp N4      &kp N5      &kp N6      &kp EQUAL      &none  &kp RSHFT  &kp RCTRL   &kp RALT   &kp RGUI   &none
+&none  &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp BSLH       &none  &none  &none  &none  &none  &none
+                               &kp DOT     &kp N0      &kp MINUS      &none  &none  &none
             >;
         };
 
         /* ============================================================
          * 5 – SYM  (activated by right-thumb ENT hold)
          *
-         * Left hand = symbols   Right hand = none (right thumb holds layer)
+         * Left hand = symbols   Right hand = mods (J=SHFT K=CTRL L=ALT ;=GUI)
          *
-         *  {   &   *   (   }               –   –   –   –   –
-         *  :   $   %   ^   +               –   –   –   –   –
-         *  ~   !   @   #   |               –   –   –   –   –
-         *         (   )   _               –   –   –
+         *  {   &   *   (   }               –    –    –    –    –
+         *  :   $   %   ^   +               –   SHFT CTRL  ALT  GUI
+         *  ~   !   @   #   |               –    –    –    –    –
+         *         (   )   _               –    –    –
          * ============================================================ */
         sym_layer {
             label = "SYM";
             bindings = <
-&none  &kp LBRC         &kp AMPS        &kp ASTRK        &kp LPAR         &kp RBRC       &none  &none  &none  &none  &none  &none
-&none  &hm LGUI COLON   &hm LALT DLLR   &hm LCTRL PRCNT  &hm LSHFT CARET  &kp PLUS       &none  &none  &none  &none  &none  &none
-&none  &kp TILDE        &kp EXCL        &kp AT           &kp HASH         &kp PIPE       &none  &none  &none  &none  &none  &none
-                                        &kp LPAR         &kp RPAR         &kp UNDER      &none  &none  &none
+&none  &kp LBRC    &kp AMPS    &kp ASTRK   &kp LPAR    &kp RBRC       &none  &none      &none       &none      &none      &none
+&none  &kp COLON   &kp DLLR    &kp PRCNT   &kp CARET   &kp PLUS       &none  &kp RSHFT  &kp RCTRL   &kp RALT   &kp RGUI   &none
+&none  &kp TILDE   &kp EXCL    &kp AT      &kp HASH    &kp PIPE       &none  &none  &none  &none  &none  &none
+                               &kp LPAR    &kp RPAR    &kp UNDER      &none  &none  &none
             >;
         };
 
         /* ============================================================
          * 6 – FUN  (activated by right-thumb DEL hold)
          *
-         * Left hand = F-keys    Right hand = none (right thumb holds layer)
+         * Left hand = F-keys    Right hand = mods (J=SHFT K=CTRL L=ALT ;=GUI)
          *
-         *  F12  F7   F8   F9  PSCRN           –   –   –   –   –
-         *  F11  F4   F5   F6  SLCK            –   –   –   –   –
-         *  F10  F1   F2   F3  PAUSE           –   –   –   –   –
-         *          APP  SPC  TAB              –   –   –
+         *  F12  F7   F8   F9  PSCRN           –    –    –    –    –
+         *  F11  F4   F5   F6  SLCK            –   SHFT CTRL  ALT  GUI
+         *  F10  F1   F2   F3  PAUSE           –    –    –    –    –
+         *          APP  SPC  TAB              –    –    –
          * ============================================================ */
         fun_layer {
             label = "FUN";
             bindings = <
-&none  &kp F12          &kp F7          &kp F8           &kp F9           &kp PSCRN        &none  &none  &none  &none  &none  &none
-&none  &hm LGUI F11     &hm LALT F4     &hm LCTRL F5     &hm LSHFT F6     &kp SLCK         &none  &none  &none  &none  &none  &none
-&none  &kp F10          &kp F1          &kp F2           &kp F3           &kp PAUSE_BREAK  &none  &none  &none  &none  &none  &none
-                                        &kp K_APP        &kp SPACE        &kp TAB          &none  &none  &none
+&none  &kp F12     &kp F7      &kp F8      &kp F9      &kp PSCRN        &none  &none      &none       &none      &none      &none
+&none  &kp F11     &kp F4      &kp F5      &kp F6      &kp SLCK         &none  &kp RSHFT  &kp RCTRL   &kp RALT   &kp RGUI   &none
+&none  &kp F10     &kp F1      &kp F2      &kp F3      &kp PAUSE_BREAK  &none  &none  &none  &none  &none  &none
+                               &kp K_APP   &kp SPACE   &kp TAB          &none  &none  &none
             >;
         };
 
