@@ -1,4 +1,4 @@
----------------------03/28/2026---------------------
+-------------------03/28/2026-------------------
 
 ## Updated to build with the latest ZMK
 
@@ -29,10 +29,10 @@ If the battery indicator does not show:
 - Rebuild from a pristine build directory after toggling any of the above.
 
 
----------------------03/05/2025---------------------
+-------------------03/05/2025-------------------
 
 Adapted to zmk studio. (https://zmk.studio)
 
 ZMK Studio provides runtime update functionality to ZMK powered devices, allowing users to change their keymap layers without flashing new firmware to their keyboards.
 
-To learn more → https://zmk.dev/docs/features/studio.
+To learn more -> https://zmk.dev/docs/features/studio.
