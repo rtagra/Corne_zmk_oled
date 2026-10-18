@@ -1,18 +1,21 @@
 include:
   # Left Half (Peripheral)
-  - board: nice_nano@2.0.0
+  - board: nice_nano//zmk
     shield: corne_left
-    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
   # Right Half (Peripheral)
-  - board: nice_nano@2.0.0
+  - board: nice_nano//zmk
     shield: corne_right
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
-# Headless Dongle (Central)
-  - board: seeed_xiao_ble@1.0.0
+  # Headless Dongle (Central)
+  - board: xiao_ble//zmk
     shield: corne_dongle
     snippet: studio-rpc-usb-uart
 
-  # Reset Image
-  - board: seeed_xiao_ble@1.0.0
+  # Reset Images
+  - board: xiao_ble//zmk
+    shield: settings_reset
+  - board: nice_nano//zmk
     shield: settings_reset
