@@ -1,11 +1,11 @@
 include:
   # Left Half (Peripheral)
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0
     shield: corne_left
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
   # Right Half (Peripheral)
-  - board: nice_nano_v2
+  - board: nice_nano@2.0.0
     shield: corne_right
 
   # Headless Dongle (Central)
@@ -13,8 +13,8 @@ include:
     shield: corne_dongle
     snippet: studio-rpc-usb-uart
 
-  # Reset Images (run first to clear previous pairing locks)
-  - board: nice_nano_v2
+  # Reset Images
+  - board: nice_nano@2.0.0
     shield: settings_reset
   - board: seeeduino_xiao_ble
     shield: settings_reset
