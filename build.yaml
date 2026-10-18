@@ -8,13 +8,11 @@ include:
   - board: nice_nano@2.0.0
     shield: corne_right
 
-  # Headless Dongle (Central)
-  - board: seeed_xiao_ble
+# Headless Dongle (Central)
+  - board: seeed_xiao_ble@1.0.0
     shield: corne_dongle
     snippet: studio-rpc-usb-uart
 
-  # Reset Images
-  - board: nice_nano@2.0.0
-    shield: settings_reset
-  - board: seeed_xiao_ble
+  # Reset Image
+  - board: seeed_xiao_ble@1.0.0
     shield: settings_reset
